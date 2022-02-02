@@ -13,7 +13,7 @@ public class RemoveDuplicatesFromSortedArrayTest {
             {new int[]{},                    new int[]{}         }, //edge case, empty array
             {new int[]{1},                   new int[]{1}        }, //edge case, one element array
             {new int[]{1,2,3},               new int[]{1,2,3}    }, //all unique
-            {new int[]{1,2,2},               new int[]{1,2}      }, //duplicate at the end
+            {new int[]{1,2,2},               new int[]{1,2}      }  //duplicate at the end
         };
     }
 

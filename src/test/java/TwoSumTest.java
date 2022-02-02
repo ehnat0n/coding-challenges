@@ -13,7 +13,7 @@ public class TwoSumTest {
                 {new int[]{3,3},         6, new int[]{0,1}}, //[example2] minimal length, two identical numbers
                 {new int[]{2,5,8},      10, new int[]{0,2}}, //two numbers not in order, first and last
                 {new int[]{0,-1},       -1, new int[]{0,1}}, //negative numbers and zero
-                {new int[]{2,4,1,11,5}, 15, new int[]{1,3}}, //not on the edge, not in order
+                {new int[]{2,4,1,11,5}, 15, new int[]{1,3}}  //not on the edge, not in order
         };
     }
 
