@@ -19,23 +19,19 @@ public class RemoveDuplicatesFromSortedArrayV2 {
      */
     public int removeDuplicates(int[] nums) {
         int len = nums.length;
-        if (len < 2) return len;
+        if (len < 3) return len;
 
-        boolean isDouble = false;
-        int leftInd = 0;
-        for (int rightInd = 1; rightInd < len; rightInd++) {
-            if (nums[leftInd] != nums[rightInd]) {
-                nums[++leftInd] = nums[rightInd];
-                isDouble = false;
-            } else {
-                if (!isDouble) {
-                    isDouble = true;
-                    if (rightInd - leftInd > 1) { //double but spread - need to move left 2nd occurrence
-                        nums[++leftInd] = nums[rightInd];
-                    } else leftInd++; //double one by one
-                }
+        int writeInd = 2; //first possible write spot
+        int trackValue = nums[writeInd - 2]; //track the value of writing spot - 2
+        int rightValue;
+        for (int rightInd = 2; rightInd < len; rightInd++) {
+            rightValue = nums[rightInd];
+            if (trackValue != rightValue) { //whenever we have a different value compare to track one -> move left
+                if (rightInd != writeInd) nums[writeInd] = rightValue; // if already at the writing spot - no need to write
+                writeInd++;
+                trackValue = nums[writeInd - 2];
             }
         }
-        return leftInd + 1;
+        return writeInd;
     }
 }
