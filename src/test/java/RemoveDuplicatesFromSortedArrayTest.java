@@ -19,8 +19,10 @@ public class RemoveDuplicatesFromSortedArrayTest {
 
     @Test(dataProvider = "testData")
     public void testSolution(int[] nums, int[] expectedNums) {
+        long startTime = System.nanoTime();
         int k = new RemoveDuplicatesFromSortedArray().removeDuplicates(nums);
-
+        long endTime = System.nanoTime();
+        System.out.println("Solution run time: " + (endTime - startTime) / 1000000d + " milliseconds.");
         assertEquals(k, expectedNums.length);
         for (int i = 0; i < k; i++) {
             assertEquals(nums[i], expectedNums[i]);

@@ -16,12 +16,20 @@ public class RemoveDuplicatesFromSortedArray {
     You must do this by modifying the input array in-place with O(1) extra memory.
      */
     public int removeDuplicates(int[] nums) {
-        if (nums.length == 0) return 0;
-        int left = 0;
-        for (int right = 1; right < nums.length; ++right) {
-            if (nums[right] == nums[left]) continue;
-            nums[++left] = nums[right];
+        int len = nums.length;
+        if (len < 2) return len;
+
+        int leftInd = 0;
+        int leftValue = nums[leftInd];
+        int rightValue;
+        for (int rightInd = 1; rightInd < len; ++rightInd) {
+            rightValue = nums[rightInd];
+            if (rightValue != leftValue) {
+                leftInd++;
+                if (rightInd != leftInd) nums[leftInd] = rightValue;
+                leftValue = rightValue;
+            }
         }
-        return left + 1;
+        return leftInd + 1;
     }
 }
