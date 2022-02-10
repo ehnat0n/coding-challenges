@@ -8,9 +8,9 @@ public class KDiffPairsInArrayTest {
     @DataProvider(name = "testData")
     public Object[][] createDataObject() {
         return new Object[][]{
-//                {new int[]{3,1,4,1,5},     2, 2}, //[example1] two of the same pairs - count one
-//                {new int[]{1,2,3,4,5},     1, 4}, //[example2] shared numbers in pairs
-//                {new int[]{1,3,1,5,4},     0, 1}, //[example3] 0 diff pair
+                {new int[]{3,1,4,1,5},     2, 2}, //[example1] two of the same pairs - count one
+                {new int[]{1,2,3,4,5},     1, 4}, //[example2] shared numbers in pairs
+                {new int[]{1,3,1,5,4},     0, 1}, //[example3] 0 diff pair
                 {new int[]{1,1,1,1,1},     0, 1}, //all the same with 0 diff - one solution
                 {new int[]{1,2,3,4,5},     0, 0}, //all different - no 0 diff solution
                 {new int[]{1,1,1,2,2},     0, 2}, //multiple groups that give 0 diff solution
