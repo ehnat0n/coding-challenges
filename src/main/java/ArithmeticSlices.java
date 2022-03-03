@@ -10,34 +10,22 @@ public class ArithmeticSlices {
     A subarray is a contiguous subsequence of the array.
      */
     public int numberOfArithmeticSlices(int[] nums) {
-        int len = nums.length;
-        if (len < 3) return 0;
+        /*
+        Count for slices ending at the previous index. We can add all those as a combo with new number + 1 for new triple.
+        If there were no slices there - just going to get count 1 for our first triple.
+         */
+        int prevSlices = 0;
 
         int sliceCount = 0;
-        boolean isSlice = false;
-        int sliceStart = 0;
         int midNum;
-        for (int i = 2; i < len; i++) {
+        for (int i = 2; i < nums.length; i++) {
             midNum = nums[i - 1];
             if ((midNum - nums[i - 2]) == (nums[i] - midNum)) {
-                if (!isSlice) {
-                    isSlice = true;
-                    sliceStart = i - 2;
-                }
+                sliceCount += ++prevSlices;
             } else {
-                if (isSlice) {
-                    isSlice = false;
-                    sliceCount += getSliceCount(i - sliceStart);
-                }
+                prevSlices = 0;
             }
         }
-        if (isSlice) sliceCount += getSliceCount(len - sliceStart);
-        return sliceCount;
-    }
-
-    private int getSliceCount(int sliceLen) {
-        int sliceCount = 0;
-        for (int j = 2; j < sliceLen; j++) sliceCount += sliceLen - j;
         return sliceCount;
     }
 }
