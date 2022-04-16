@@ -22,6 +22,10 @@ public class TreeNode {
         return val;
     }
 
+    public void setVal(int val) {
+        this.val = val;
+    }
+
     public TreeNode getLeftNode() {
         return left;
     }
