@@ -21,6 +21,11 @@ public class NQueens {
     private List<List<String>> result;
     private int n;
 
+    /*
+    T: O(n!) - essentially, column permutations with fixed row order: choose column for row 1 out of n, then
+    column for row 2 out of n-1 etc.
+    S: O(n * n) - board state storage
+     */
     public List<List<String>> solveNQueens(int n) {
         this.n = n;
         board = new char[n][n];

@@ -13,6 +13,11 @@ public class NQueensV2 {
     private int n;
     private int result;
 
+    /*
+    T: O(n!) - essentially, column permutations with fixed row order: choose column for row 1 out of n, then
+    column for row 2 out of n-1 etc.
+    S: O(n) - solution counter is O(1), but we will have O(n) recursive calls on stack
+     */
     public int totalNQueens(int n) {
         this.n = n;
         result = 0;
