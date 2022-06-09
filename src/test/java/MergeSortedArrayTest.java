@@ -21,10 +21,13 @@ public class MergeSortedArrayTest {
 
     @Test(dataProvider = "testData")
     public void testSolution(int[] nums1, int m, int[] nums2, int n, int[] expectedNums) {
-        new MergeSortedArray().merge(nums1, m, nums2, n);
+        long startTime, endTime;
 
-        for (int i = 0; i < m + n; i++) {
-            assertEquals(nums1[i], expectedNums[i]);
-        }
+        startTime = System.nanoTime();
+        new MergeSortedArray().merge(nums1, m, nums2, n);
+        endTime = System.nanoTime();
+
+        System.out.println("Solution run time: " + (endTime - startTime) / 1000000d + " milliseconds.");
+        assertEquals(nums1, expectedNums);
     }
 }
